@@ -3,7 +3,8 @@ import "./App.css";
 import CreateUser from "./components/Banking/CreateUser";
 import Transactions from "./components/Banking/Transactions";
 import Home from "./components/Banking/Home";
-import Dashboard from "./components/Budget/Dashboard"
+import Dashboard from "./components/Budget/Dashboard";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [users, setUsers] = useState([
@@ -45,9 +46,7 @@ function App() {
       {view === "transactions" && (
         <Transactions onTransaction={handleTransaction} users={users} />
       )}
-      {view === "budget" && (
-        <Dashboard />
-      )}
+      {view === "budget" && <Dashboard />}
     </div>
   );
 }

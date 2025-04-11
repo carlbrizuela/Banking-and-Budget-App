@@ -10,29 +10,50 @@ const Home = ({ users }) => {
   const totalBalance = users.reduce((sum, user) => sum + user.balance, 0);
 
   return (
-    <div>
-      <h1>Bank Dashboard</h1>
-      <p>Total Users: {users.length}</p>
-      <p>Total Balance: {formatPeso(totalBalance)}</p>
+    <div className="container mt-5">
+      <div className="text-center mb-4">
+        <h1 className="display-4">Bank Dashboard</h1>
+      </div>
 
-      <table border="1" cellPadding="10" style={{ marginTop: "20px", width: "100%" }}>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Balance</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.email}>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{formatPeso(user.balance)}</td>
+      <div className="row mb-4">
+        <div className="col-md-6">
+          <div className="card text-white bg-secondary mb-3">
+            <div className="card-body">
+              <h5 className="card-title">Total Users</h5>
+              <p className="card-text fs-4">{users.length}</p>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="card text-white bg-secondary mb-3">
+            <div className="card-body">
+              <h5 className="card-title">Total Balance</h5>
+              <p className="card-text fs-4">{formatPeso(totalBalance)}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="table-responsive">
+        <table className="table table-striped table-bordered">
+          <thead className="table-dark">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Balance</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <tr key={user.email}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{formatPeso(user.balance)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

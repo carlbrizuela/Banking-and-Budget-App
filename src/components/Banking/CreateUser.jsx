@@ -62,46 +62,72 @@ const CreateUser = ({ onCreateUser, users }) => {
   };
 
   return (
-    <div>
-      <h2>Create New User</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        {nameError && <p className="error">{nameError}</p>}
-        <br /><br />
+    <div className="container mt-5">
+      <div className="text-center mb-4">
+        <h2 className="display-5">Create New User</h2>
+      </div>
 
-        <input
-          placeholder="Email"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        {emailError && <p className="error">{emailError}</p>}
-        <br /><br />
+      <div className="card mx-auto" style={{ maxWidth: "500px" }}>
+        <div className="card-body">
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label className="form-label">Name</label>
+              <input
+                type="text"
+                className={`form-control ${nameError ? "is-invalid" : ""}`}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Enter full name"
+              />
+              {nameError && <div className="invalid-feedback">{nameError}</div>}
+            </div>
 
-        <input
-          placeholder="Password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        {passwordError && <p className="error">{passwordError}</p>}
-        <br /><br />
+            <div className="mb-3">
+              <label className="form-label">Email</label>
+              <input
+                type="email"
+                className={`form-control ${emailError ? "is-invalid" : ""}`}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter email"
+              />
+              {emailError && <div className="invalid-feedback">{emailError}</div>}
+            </div>
 
-        <input
-          placeholder="Initial Balance"
-          type="number"
-          value={balance}
-          onChange={(e) => setBalance(e.target.value)}
-        />
-        {balanceError && <p className="error">{balanceError}</p>}
-        <br /><br />
+            <div className="mb-3">
+              <label className="form-label">Password</label>
+              <input
+                type="password"
+                className={`form-control ${passwordError ? "is-invalid" : ""}`}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter password"
+              />
+              {passwordError && (
+                <div className="invalid-feedback">{passwordError}</div>
+              )}
+            </div>
 
-        <button type="submit">Create User</button>
-      </form>
+            <div className="mb-3">
+              <label className="form-label">Initial Balance</label>
+              <input
+                type="number"
+                className={`form-control ${balanceError ? "is-invalid" : ""}`}
+                value={balance}
+                onChange={(e) => setBalance(e.target.value)}
+                placeholder="Enter starting balance"
+              />
+              {balanceError && (
+                <div className="invalid-feedback">{balanceError}</div>
+              )}
+            </div>
+
+            <button type="submit" className="btn btn-success w-100">
+              Create User
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
