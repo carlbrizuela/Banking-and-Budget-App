@@ -3,6 +3,7 @@ import "./App.css";
 import CreateUser from "./components/Banking/CreateUser";
 import Transactions from "./components/Banking/Transactions";
 import Home from "./components/Banking/Home";
+import Dashboard from "./components/Budget/Dashboard"
 
 function App() {
   const [users, setUsers] = useState([
@@ -32,6 +33,9 @@ function App() {
         <button onClick={() => handleChangeView("transactions")}>
           Transactions
         </button>
+        <button onClick={() => handleChangeView("budget")}>
+          Budget Tracker
+        </button>
       </nav>
 
       {view === "home" && <Home users={users} />}
@@ -40,6 +44,9 @@ function App() {
       )}
       {view === "transactions" && (
         <Transactions onTransaction={handleTransaction} users={users} />
+      )}
+      {view === "budget" && (
+        <Dashboard />
       )}
     </div>
   );
