@@ -37,8 +37,8 @@
   }
 }
 
-.modal{
-  position: relative;
-  height: 100%;
-  width: 100%;
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-top: 5px;
 }
