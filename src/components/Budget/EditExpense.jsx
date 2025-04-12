@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css"
 
 function EditExpense(props){
 
@@ -46,11 +47,24 @@ function EditExpense(props){
       setNewAmount('')
       setShowEditExpense(false)   
 }
+function onClick(){
+   setShowEditExpense(false)   
+}
 
    return(
-      <div>
-         <form onSubmit={editExpenseHandler}>
-		   	<select value={newCategory} onChange={(event) => setNewCategory(event.target.value)} >
+      <div className="modal" style={{ display: "block" }} >
+         <div className="modal-dialog modal-dialog-centered modal-lg">
+          <div className="modal-content w-100 pt-0">
+            <div className='modal-header d-flex flex-row justify-content-between w-100 pt-0'>
+               <h3>Edit Expense</h3>
+               <span className="closeButton fs-2" onClick={onClick}>&times;</span> 
+            </div>
+            
+         
+         <div className="row pt-4">
+         <div className="col form-floating p-0">
+            
+		   	<select className="form-select" id="newCategory" value={newCategory} onChange={(event) => setNewCategory(event.target.value)} >
 			   	<option style={{ display: 'none' }}> Choose Category </option>
 					<option>Food and Beverage</option>
 					<option>Transportation</option>
@@ -60,21 +74,38 @@ function EditExpense(props){
 					<option>Personal</option>
                <option>Others</option>
             </select>
-                
-            <input 
-               value={newItem} 
-               placeholder={"Add item" }
-               onChange={(event) => setNewItem(event.target.value)}>
-            </input>
+            <label htmlFor="newCategory">Category</label>
+                </div>
+                <div className="col form-floating p-0 ms-2">
+                  <input 
+                     value={newItem} 
+                     placeholder={"Add item" }
+                     onChange={(event) => setNewItem(event.target.value)} 
+                     className = "form-control"
+                     id="newitem">
+                  </input>
+                  <label htmlFor="newItem" className="form-label"> Item</label>
+               </div>
+
+            <div className="col form-floating p-0 ms-2">
             
             <input 
                value={newAmount} 
                placeholder="Add amount" 
-               onChange={(event) => setNewAmount(event.target.value)}>
+               onChange={(event) => setNewAmount(event.target.value)}
+               className = "form-control"
+               id="newAmount">
+               
             </input>
-            
-            <button>Edit Expense</button>
-      	</form>
+            <label  htmlFor="newAmount" className="form-label"> Amount</label>
+            </div>
+            </div>   
+            <div className="row pt-4 w-25">
+            <button className="btn btn-primary" disabled={newCategory !== "" && newItem !== "" && newAmount !== "" ? false : true} onClick={editExpenseHandler}>Edit</button>
+            </div>
+      	
+         </div>
+         </div>
       </div>
     )
 }

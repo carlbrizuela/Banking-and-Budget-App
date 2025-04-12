@@ -1,12 +1,17 @@
 import { PieChart, pieArcLabelClasses} from "@mui/x-charts";
+import "bootstrap/dist/css/bootstrap.min.css"
 
 function DisplayChart(props) {
 
-   const { data } = props
+   const { data, setShowChart} = props
+
+	function onClick(){
+		setShowChart(false)
+	}
 
 	const sizing = {
 		margin: { right: 5 },
-      width: 1000,
+      width: 800,
       height: 500,
       legend: { direction: 'column',
 			position: { vertical: 'middle', horizontal: 'right' },
@@ -22,23 +27,35 @@ function DisplayChart(props) {
    };
 	
    return(
-		<div className="modal">
+		<div className="modal" style={{ display: "block" }} >
+         <div className="modal-dialog modal-dialog-centered modal-xl">
+          <div className="modal-content h-50">
+            <div className='modal-header d-flex flex-row justify-content-between w-100'>
+               <h3>Chart</h3>
+               <span className="closeButton fs-2" onClick={onClick}>&times;</span> 
+            </div>
+            
 			<PieChart 
 				series={[
 					{
 						outerRadius: 200,
 						data,
-						arcLabel: getArcLabel
+						arcLabelMinAngle: 35,
+						arcLabel: getArcLabel,
+						highlightScope: { fade: 'global', highlight: 'item' },
+      				faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
 					},
 		      ]}
           	sx={{
             	[`& .${pieArcLabelClasses.root}`]: {
               		fill: 'white',
-              		fontSize: 14,
+              		fontSize: 20,
              	},
             }}
           	{...sizing}
          />
+			</div>
+			</div>
 		</div>
    )
 }
