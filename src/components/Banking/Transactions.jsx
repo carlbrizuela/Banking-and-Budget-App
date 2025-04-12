@@ -64,45 +64,71 @@ const Transactions = ({ onTransaction, users }) => {
   };
 
   return (
-    <div>
-      <h2>{type.charAt(0).toUpperCase() + type.slice(1)} Transaction</h2>
+    <div className="container mt-5">
+      <div className="text-center mb-4">
+        <h2 className="display-5">{type.charAt(0).toUpperCase() + type.slice(1)} Transaction</h2>
+      </div>
 
-      <select value={type} onChange={(e) => setType(e.target.value)}>
-        <option value="deposit">Deposit</option>
-        <option value="withdraw">Withdraw</option>
-        <option value="transfer">Transfer</option>
-      </select>
-      <br /><br />
+      <div className="card mx-auto" style={{ maxWidth: "500px" }}>
+        <div className="card-body">
+          <form>
+            <div className="mb-3">
+              <label className="form-label">Transaction Type</label>
+              <select
+                value={type}
+                onChange={(e) => setType(e.target.value)}
+                className="form-select"
+              >
+                <option value="deposit">Deposit</option>
+                <option value="withdraw">Withdraw</option>
+                <option value="transfer">Transfer</option>
+              </select>
+            </div>
 
-      {(type === "withdraw" || type === "transfer") && (
-        <input
-          placeholder="Sender Name"
-          value={sender}
-          onChange={(e) => setSender(e.target.value)}
-        />
-      )}
-      <br />
+            {(type === "withdraw" || type === "transfer") && (
+              <div className="mb-3">
+                <label className="form-label">Sender Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter sender name"
+                  value={sender}
+                  onChange={(e) => setSender(e.target.value)}
+                />
+              </div>
+            )}
 
-      {(type === "deposit" || type === "transfer") && (
-        <input
-          placeholder="Receiver Name"
-          value={receiver}
-          onChange={(e) => setReceiver(e.target.value)}
-        />
-      )}
-      <br />
+            {(type === "deposit" || type === "transfer") && (
+              <div className="mb-3">
+                <label className="form-label">Receiver Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter receiver name"
+                  value={receiver}
+                  onChange={(e) => setReceiver(e.target.value)}
+                />
+              </div>
+            )}
 
-      <input
-        type="number"
-        placeholder="Amount"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-      />
-      <br /><br />
+            <div className="mb-3">
+              <label className="form-label">Amount</label>
+              <input
+                type="number"
+                className={`form-control ${error ? "is-invalid" : ""}`}
+                placeholder="Enter amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
+              {error && <div className="invalid-feedback">{error}</div>}
+            </div>
 
-      {error && <p className="error">{error}</p>}
-
-      <button onClick={handleTransaction}>Submit</button>
+            <button type="button" className="btn btn-success w-100" onClick={handleTransaction}>
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
