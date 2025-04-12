@@ -146,7 +146,7 @@ console.log(itemError)
 				</div>
 			
 			<div className="row mx-auto w-25 mt-2">
-            	<button className="btn btn-outline-secondary" onClick={addExpenseHandler}>Add</button>
+            	<button className="btn btn-primary" onClick={addExpenseHandler}>Add</button>
 				</div>
       </div>
    );

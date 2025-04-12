@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Dashboard from "./Dashboard.jsx";
+import Dashboard from "./Dashboard";
 
 function HomeBudget(){
 
@@ -20,7 +20,7 @@ function HomeBudget(){
    return(
       <div>
          { !showDashboard && 
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center mt-5">
                   <form className="w-25 "onSubmit={displayBudget}>
                      <h3 className="mb-3">Input Budget</h3>
                      <input className={`form-control ${budgetError ? "is-invalid": ""}`} value = {budget} placeholder="Budget " 
