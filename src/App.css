@@ -91,3 +91,22 @@
   right: 8px;
   top: 0;
 }
+
+#expense-table{
+  max-height: 50vh;
+  overflow-x: auto
+}
+
+#chart-button{
+  position: absolute;
+  right: 7%;
+  bottom: 10%
+}
+
+table thead {
+  position: sticky;
+  top: 0;
+  margin: 0;
+  padding:0;
+  border-top: 1px solid white;
+}

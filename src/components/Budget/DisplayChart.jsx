@@ -10,12 +10,13 @@ function DisplayChart(props) {
 	}
 
 	const sizing = {
-		margin: { right: 5 },
-      width: 800,
+      width: 750,
       height: 500,
       legend: { direction: 'column',
 			position: { vertical: 'middle', horizontal: 'right' },
-			padding: 0, },
+			padding: 0, 
+			itemMaxWidth: 500,
+			itemWrap: true},
    };
 
    const TOTAL = data.map((item) => item.value).reduce((sum, amount) => sum + amount);
@@ -28,19 +29,21 @@ function DisplayChart(props) {
 	
    return(
 		<div className="modal" style={{ display: "block" }} >
-         <div className="modal-dialog modal-dialog-centered modal-xl">
+         <div className="modal-dialog modal-dialog-centered modal-lg">
           <div className="modal-content h-50">
-            <div className='modal-header d-flex flex-row justify-content-between w-100'>
-               <h3>Chart</h3>
+            <div className='modal-header d-flex flex-row justify-content-between w-100 pb-1'>
+               <h3>Expense</h3>
                <span className="closeButton fs-2" onClick={onClick}>&times;</span> 
             </div>
-            
-			<PieChart 
+				<h4 style={{position: "absolute", top:"70px", left:"17px"}}>Total: Php {TOTAL}</h4>
+				
+			<PieChart
 				series={[
 					{
 						outerRadius: 200,
 						data,
 						arcLabelMinAngle: 35,
+						cx: 260,
 						arcLabel: getArcLabel,
 						highlightScope: { fade: 'global', highlight: 'item' },
       				faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
@@ -49,7 +52,7 @@ function DisplayChart(props) {
           	sx={{
             	[`& .${pieArcLabelClasses.root}`]: {
               		fill: 'white',
-              		fontSize: 20,
+              		fontSize: 16,
              	},
             }}
           	{...sizing}

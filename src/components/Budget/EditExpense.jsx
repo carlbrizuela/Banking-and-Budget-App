@@ -22,7 +22,6 @@ function EditExpense(props){
 
          const editedExpenseList = expenseList.map((expense)=>{
             if(expense.id === id){
-               console.log("in")
                return editedExpense
             }else{
                return expense
@@ -64,7 +63,7 @@ function onClick(){
          <div className="row pt-4">
          <div className="col form-floating p-0">
             
-		   	<select className="form-select" id="newCategory" value={newCategory} onChange={(event) => setNewCategory(event.target.value)} >
+		   	<select disabled className="form-select" id="newCategory" value={newCategory} onChange={(event) => setNewCategory(event.target.value)} >
 			   	<option style={{ display: 'none' }}> Choose Category </option>
 					<option>Food and Beverage</option>
 					<option>Transportation</option>

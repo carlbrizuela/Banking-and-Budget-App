@@ -9,7 +9,6 @@ function AddExpense(props) {
 	const [amount, setAmount] = useState('');
 	const [count, setCount] = useState(expenseList.length)
   	const [legendId, setLegendId] = useState(0)
-	//const [error, setError] = useState(false)
 
 	const [categoryError, setCategoryError] = useState('');
   	const [itemError, setItemError] = useState('');
@@ -22,7 +21,6 @@ function AddExpense(props) {
 			error = true
 		}
 		if(!item){
-			console.log("item")
 			setItemError("Input item")
 			error = true
 		}
@@ -43,8 +41,7 @@ function AddExpense(props) {
 		let  newAmount = Number(amount)
 
 		const validation = checkInput()
-console.log(itemError)
-		//if(category && item && amcount && newAmount > 0){
+
 		if(!validation){
 			setCount(count + 1)
 			const newExpense = {
