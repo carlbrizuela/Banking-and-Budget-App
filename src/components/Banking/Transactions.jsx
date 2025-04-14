@@ -55,7 +55,13 @@ const Transactions = ({ onTransaction, users }) => {
       return user;
     });
 
-    onTransaction(updatedUsers);
+    onTransaction(updatedUsers, {
+      type,
+      amount: amt,
+      sender: sender || "N/A",
+      receiver: receiver || "N/A",
+      timestamp: new Date().toISOString(),
+    });
     alert(`${type.charAt(0).toUpperCase() + type.slice(1)} successful!`);
 
     setAmount("");

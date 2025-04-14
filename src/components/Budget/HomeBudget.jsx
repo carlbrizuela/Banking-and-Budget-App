@@ -22,7 +22,7 @@ function HomeBudget(){
          { !showDashboard && 
             <div className="d-flex justify-content-center mt-5">
                   <form className="w-25 "onSubmit={displayBudget}>
-                     <h3 className="mb-3">Input Budget</h3>
+                     <h3 className="mb-3 display-4">Input Budget</h3>
                      <input className={`form-control ${budgetError ? "is-invalid": ""}`} value = {budget} placeholder="Budget " 
                         onChange={(event) => {
                            setBudget(event.target.value)
