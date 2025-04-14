@@ -107,16 +107,15 @@ function Dashboard(props) {
                      </tbody>
                   </table>
                </div>
-               { expenseList.length !== 0 && <button id="chart-button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onClick={() => setShowChart(true)}>Display Chart</button>}
+               { expenseList.length !== 0 && <button id="chart-button" className="btn" data-toggle="modal" data-target="#exampleModalCenter" onClick={() => setShowChart(true)}>Display Chart</button>}
             </div>
          </div>
          
-         
-
         	{ showEditExpense && <EditExpense expenseToEdit={expenseToEdit} expenseList = {expenseList} setExpensesList={setExpensesList} setShowEditExpense={setShowEditExpense} setBudget={setBudget} setData={setData} data={data}/>}
         
          { showChart && <DisplayChart data = {data} setShowChart={setShowChart} /> }
-         { showEditBudget && <EditBudget budget = {budget} setBudget={setBudget} setShowEditBudget={setShowEditBudget}/> }
+         
+         { showEditBudget && <EditBudget setBudget={setBudget} setShowEditBudget={setShowEditBudget}/> }
       
       </div>
       

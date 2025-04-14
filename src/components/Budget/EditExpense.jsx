@@ -54,13 +54,13 @@ function onClick(){
       <div className="modal" style={{ display: "block" }} >
          <div className="modal-dialog modal-dialog-centered modal-lg">
           <div className="modal-content w-100 pt-0">
-            <div className='modal-header d-flex flex-row justify-content-between w-100 pt-0'>
+            <div className='modal-header d-flex flex-row justify-content-center w-100 pt-0 pb-2'>
                <h3>Edit Expense</h3>
                <span className="closeButton fs-2" onClick={onClick}>&times;</span> 
             </div>
             
          
-         <div className="row pt-4">
+         <div className="row">
          <div className="col form-floating p-0">
             
 		   	<select disabled className="form-select" id="newCategory" value={newCategory} onChange={(event) => setNewCategory(event.target.value)} >
@@ -99,8 +99,8 @@ function onClick(){
             <label  htmlFor="newAmount" className="form-label"> Amount</label>
             </div>
             </div>   
-            <div className="row pt-4 w-25">
-            <button className="btn btn-primary" disabled={newCategory !== "" && newItem !== "" && newAmount !== "" ? false : true} onClick={editExpenseHandler}>Edit</button>
+            <div className="row w-25">
+            <button id="buttons" className="btn" disabled={newCategory !== "" && newItem !== "" && newAmount !== "" ? false : true} onClick={editExpenseHandler}>Edit</button>
             </div>
       	
          </div>

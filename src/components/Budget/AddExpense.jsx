@@ -87,64 +87,63 @@ function AddExpense(props) {
    return (
       <div className="w-75 mx-auto">
 			<h4>Input Expense</h4>
-			
-				<div className={`row form-floating ${categoryError ? "" : "mb-4"}`}>
-					<select 
-						className={`form-select ${categoryError ? "is-invalid" : ""}`}
-						id="category" 
-						value={category} 
-						onChange={(event) => {
-							setCategory(event.target.value)
-							setCategoryError('')
-						} 
-					}>
-						<option style={{ display: 'none' }}> Choose Category </option>
-						<option>Food and Beverage</option>
-						<option>Transportation</option>
-						<option>Bills and Utilities</option>
-						<option>Medical and Healthcare</option>
-						<option>Recreation and Entertainment</option>
-						<option>Personal</option>
-						<option>Others</option>
-					</select>
-					<label htmlFor="category">Category</label>
-					{categoryError && <div className="invalid-feedback">{categoryError}</div>}
-				</div>
+			<div className={`row form-floating ${categoryError ? "" : "mb-4"}`}>
+				<select 
+					className={`form-select ${categoryError ? "is-invalid" : ""}`}
+					id="category" 
+					value={category} 
+					onChange={(event) => {
+						setCategory(event.target.value)
+						setCategoryError('')
+					} 
+				}>
+					<option style={{ display: 'none' }}> Choose Category </option>
+					<option>Food and Beverage</option>
+					<option>Transportation</option>
+					<option>Bills and Utilities</option>
+					<option>Medical and Healthcare</option>
+					<option>Recreation and Entertainment</option>
+					<option>Personal</option>
+					<option>Others</option>
+				</select>
+				<label htmlFor="category">Category</label>
+				{categoryError && <div className="invalid-feedback">{categoryError}</div>}
+			</div>
 				
-				<div className={`row form-floating mt-1 ${itemError ? "" : "mb-4"}`}>
-					<input 
-						value={item} 
-						placeholder="Add item" 
-						onChange={(event) => {
-							setItem(event.target.value) 
-							setItemError('')}
-						}
-						className={`form-control ${itemError ? "is-invalid" : ""}`}
-						id="item" required>
-					</input>
-					<label htmlFor="item">Item</label>
-					{itemError && <div className="invalid-feedback position-relative">{itemError}</div>}
-				</div>
+			<div className={`row form-floating mt-1 ${itemError ? "" : "mb-4"}`}>
+				<input 
+					value={item} 
+					placeholder="Add item" 
+					onChange={(event) => {
+						setItem(event.target.value) 
+						setItemError('')}
+					}
+					className={`form-control ${itemError ? "is-invalid" : ""}`}
+					id="item" required>
+				</input>
+				<label htmlFor="item">Item</label>
+				{ itemError && <div className="invalid-feedback position-relative">{itemError}</div>}
+			</div>
 
-				<div className={`row form-floating mt-1 ${amountError ? "" : "mb-4"}`}>
-					<input 
-						value={amount} 
-						placeholder="Add amount" 
-						onChange={(event) => {
-							setAmount(event.target.value)
-							setAmountError('')}
-						}
-						className={`form-control ${amountError ? "is-invalid" : ""}`}
-						id="item"
-						type="number">
-					</input>
-					<label htmlFor="amount">Amount</label>
-					<div className="invalid-feedback">{amountError}</div>
-				</div>
+			<div className={`row form-floating mt-1 ${amountError ? "" : "mb-4"}`}>
+				<input 
+					value={amount} 
+					placeholder="Add amount" 
+					onChange={(event) => {
+						setAmount(event.target.value)
+						setAmountError('')}
+					}
+					className={`form-control ${amountError ? "is-invalid" : ""}`}
+					id="item"
+					type="number">
+				</input>
+				<label htmlFor="amount">Amount</label>
+				<div className="invalid-feedback">{amountError}</div>
+			</div>
 			
 			<div className="row mx-auto w-25 mt-2">
-            	<button className="btn btn-primary" onClick={addExpenseHandler}>Add</button>
-				</div>
+            <button id="buttons" className="btn" onClick={addExpenseHandler}>Add</button>
+			</div>
       </div>
    );
 }

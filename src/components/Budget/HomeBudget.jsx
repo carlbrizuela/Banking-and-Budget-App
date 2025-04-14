@@ -23,13 +23,16 @@ function HomeBudget(){
             <div className="d-flex justify-content-center mt-5">
                   <form className="w-25 "onSubmit={displayBudget}>
                      <h3 className="mb-3 display-4">Input Budget</h3>
-                     <input className={`form-control ${budgetError ? "is-invalid": ""}`} value = {budget} placeholder="Budget " 
+                     <div className="card mx-auto" style={{ maxWidth: "500px" }}>
+        <div className="card-body">
+                     <input className={`form-control mx-auto mt-3 w-75 ${budgetError ? "is-invalid": ""}`} value = {budget} placeholder="Budget " 
                         onChange={(event) => {
                            setBudget(event.target.value)
                            setBudgetError('')}
                      }></input>
                      { budgetError && <div className="invalid-feedback">{budgetError}</div>}
-                     <button className="btn btn-primary mt-2">Confirm</button>
+                     <button id="buttons" className="btn mt-4 mb-3 w-50">Confirm</button>
+                     </div></div>
                   </form>
             </div>
          }

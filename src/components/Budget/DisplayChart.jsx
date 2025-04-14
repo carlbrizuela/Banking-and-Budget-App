@@ -31,8 +31,8 @@ function DisplayChart(props) {
 		<div className="modal" style={{ display: "block" }} >
          <div className="modal-dialog modal-dialog-centered modal-lg">
           <div className="modal-content h-50">
-            <div className='modal-header d-flex flex-row justify-content-between w-100 pb-1'>
-               <h3>Expense</h3>
+            <div className='modal-header d-flex flex-row justify-content-center w-100 pb-1'>
+               <h3>Expenses Distribution</h3>
                <span className="closeButton fs-2" onClick={onClick}>&times;</span> 
             </div>
 				<h4 style={{position: "absolute", top:"70px", left:"17px"}}>Total: Php {TOTAL}</h4>

@@ -68,10 +68,9 @@
   animation-duration: 0.4s;
 }
 .modal-content {
-  height: 40vh;
-  justify-content: center;
+  height: 35vh;
+  justify-content: space-evenly;
   align-items: center;
-  bottom: 100
 }
 
 .modal-body {
@@ -112,5 +111,10 @@ table thead {
 }
 
 nav {
-  background-color: #3b4c83;
+  background-color: #395E66;
+}
+
+#buttons, #chart-button{
+  background-color: #0F6F85 ;
+  color: white
 }

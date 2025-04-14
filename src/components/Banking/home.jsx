@@ -17,7 +17,7 @@ const Home = ({ users }) => {
 
       <div className="row mb-4">
         <div className="col-md-6">
-          <div className="card text-white bg-secondary mb-3">
+          <div className="card text-white mb-3" style={{ backgroundColor: '#387D7A' }} >
             <div className="card-body">
               <h5 className="card-title">Total Users</h5>
               <p className="card-text fs-4">{users.length}</p>
@@ -25,7 +25,7 @@ const Home = ({ users }) => {
           </div>
         </div>
         <div className="col-md-6">
-          <div className="card text-white bg-secondary mb-3">
+          <div className="card text-white mb-3" style={{ backgroundColor: '#32936F' }}>
             <div className="card-body">
               <h5 className="card-title">Total Balance</h5>
               <p className="card-text fs-4">{formatPeso(totalBalance)}</p>

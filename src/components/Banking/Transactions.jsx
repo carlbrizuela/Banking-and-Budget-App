@@ -129,7 +129,7 @@ const Transactions = ({ onTransaction, users }) => {
               {error && <div className="invalid-feedback">{error}</div>}
             </div>
 
-            <button type="button" className="btn btn-success w-100" onClick={handleTransaction}>
+            <button type="button" id="buttons" className="btn w-100" onClick={handleTransaction}>
               Submit
             </button>
           </form>

@@ -122,7 +122,7 @@ const CreateUser = ({ onCreateUser, users }) => {
               )}
             </div>
 
-            <button type="submit" className="btn btn-success w-100">
+            <button type="submit" id="buttons" className="btn w-100">
               Create User
             </button>
           </form>
