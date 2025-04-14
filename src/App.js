@@ -32,8 +32,8 @@ function App() {
 
   return (
     <div className="App">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-        <span className="navbar-brand fw-bold">Bank Name</span>
+      <nav className="navbar navbar-expand-lg navbar-dark px-4">
+        <span className="navbar-brand fw-bold">PNB</span>
 
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ms-auto d-flex flex-row gap-2">

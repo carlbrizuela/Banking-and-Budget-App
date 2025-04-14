@@ -110,3 +110,7 @@ table thead {
   padding:0;
   border-top: 1px solid white;
 }
+
+nav {
+  background-color: #3b4c83;
+}
