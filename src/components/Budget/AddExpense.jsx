@@ -2,32 +2,32 @@ import { useState } from "react";
 
 function AddExpense(props) {
 
-  	const { expenseList, setExpensesList, setBudget, setData, data} = props;
+	const { expenseList, setExpensesList, setBudget, setData, data } = props;
 
-  	const [category, setCategory] = useState('');
-  	const [item, setItem] = useState('');
+	const [category, setCategory] = useState('');
+	const [item, setItem] = useState('');
 	const [amount, setAmount] = useState('');
 	const [count, setCount] = useState(expenseList.length)
-  	const [legendId, setLegendId] = useState(0)
+	const [legendId, setLegendId] = useState(0)
 
 	const [categoryError, setCategoryError] = useState('');
-  	const [itemError, setItemError] = useState('');
+	const [itemError, setItemError] = useState('');
 	const [amountError, setAmountError] = useState('');
 
-	function checkInput(){
+	function checkInput() {
 		let error = false
-		if(!category){
+		if (!category) {
 			setCategoryError("Select category")
 			error = true
 		}
-		if(!item){
+		if (!item) {
 			setItemError("Input item")
 			error = true
 		}
-		if(!amount){
+		if (!amount) {
 			setAmountError("Input amount")
 			error = true
-		}else if(amount <= 0){
+		} else if (amount <= 0) {
 			setAmountError("Input amount greater than 0")
 			error = true
 		}
@@ -35,14 +35,14 @@ function AddExpense(props) {
 		return error
 	}
 
-  	function addExpenseHandler(event){
+	function addExpenseHandler(event) {
 		event.preventDefault();
-   
-		let  newAmount = Number(amount)
+
+		let newAmount = Number(amount)
 
 		const validation = checkInput()
 
-		if(!validation){
+		if (!validation) {
 			setCount(count + 1)
 			const newExpense = {
 				id: count,
@@ -50,53 +50,53 @@ function AddExpense(props) {
 				item: item,
 				amount: newAmount
 			}
-						
+
 			const checkLegend = data.filter(item => item.label === newExpense.category)
-				
-			if (!checkLegend.length){
+
+			if (!checkLegend.length) {
 				setData(
 					[...data,
-						{
-							id: legendId,
-							value: newExpense.amount,
-							label: newExpense.category
-						}
+					{
+						id: legendId,
+						value: newExpense.amount,
+						label: newExpense.category
+					}
 					])
-			}else{
+			} else {
 				const updateLegend = data.map((cat) => {
-					if(cat.label === newExpense.category){
-						return {...cat, value: cat.value + newAmount}
-					}else{
+					if (cat.label === newExpense.category) {
+						return { ...cat, value: cat.value + newAmount }
+					} else {
 						return cat
 					}
 				})
-					
+
 				setData(updateLegend)
 			}
-				
+
 			setLegendId(legendId + 1)
-						
+
 			setExpensesList((prevExpenses) => [...prevExpenses, newExpense])
 			setBudget((prev) => prev - amount)
 			setCategory('')
 			setItem('')
 			setAmount('')
-		} 
+		}
 	}
 
-   return (
-      <div className="w-75 mx-auto">
+	return (
+		<div className="w-75 mx-auto">
 			<h4>Input Expense</h4>
 			<div className={`row form-floating ${categoryError ? "" : "mb-4"}`}>
-				<select 
+				<select
 					className={`form-select ${categoryError ? "is-invalid" : ""}`}
-					id="category" 
-					value={category} 
+					id="category"
+					value={category}
 					onChange={(event) => {
 						setCategory(event.target.value)
 						setCategoryError('')
-					} 
-				}>
+					}
+					}>
 					<option style={{ display: 'none' }}> Choose Category </option>
 					<option>Food and Beverage</option>
 					<option>Transportation</option>
@@ -109,29 +109,31 @@ function AddExpense(props) {
 				<label htmlFor="category">Category</label>
 				{categoryError && <div className="invalid-feedback">{categoryError}</div>}
 			</div>
-				
+
 			<div className={`row form-floating mt-1 ${itemError ? "" : "mb-4"}`}>
-				<input 
-					value={item} 
-					placeholder="Add item" 
+				<input
+					value={item}
+					placeholder="Add item"
 					onChange={(event) => {
-						setItem(event.target.value) 
-						setItemError('')}
+						setItem(event.target.value)
+						setItemError('')
+					}
 					}
 					className={`form-control ${itemError ? "is-invalid" : ""}`}
 					id="item" required>
 				</input>
 				<label htmlFor="item">Item</label>
-				{ itemError && <div className="invalid-feedback position-relative">{itemError}</div>}
+				{itemError && <div className="invalid-feedback position-relative">{itemError}</div>}
 			</div>
 
 			<div className={`row form-floating mt-1 ${amountError ? "" : "mb-4"}`}>
-				<input 
-					value={amount} 
-					placeholder="Add amount" 
+				<input
+					value={amount}
+					placeholder="Add amount"
 					onChange={(event) => {
 						setAmount(event.target.value)
-						setAmountError('')}
+						setAmountError('')
+					}
 					}
 					className={`form-control ${amountError ? "is-invalid" : ""}`}
 					id="item"
@@ -140,12 +142,12 @@ function AddExpense(props) {
 				<label htmlFor="amount">Amount</label>
 				<div className="invalid-feedback">{amountError}</div>
 			</div>
-			
+
 			<div className="row mx-auto w-25 mt-2">
-            <button id="buttons" className="btn" onClick={addExpenseHandler}>Add</button>
+				<button id="buttons" className="btn" onClick={addExpenseHandler}>Add</button>
 			</div>
-      </div>
-   );
+		</div>
+	);
 }
 
 export default AddExpense;

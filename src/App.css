@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -67,6 +68,7 @@
   animation-name: fadeIn;
   animation-duration: 0.4s;
 }
+
 .modal-content {
   height: 35vh;
   justify-content: space-evenly;
@@ -77,26 +79,27 @@
   align-items: center;
 }
 
-.actionButton:hover, .closeButton:hover{
+.actionButton:hover,
+.closeButton:hover {
   cursor: pointer;
 }
 
-#editBudgetModal{
+#editBudgetModal {
   height: 220px;
 }
 
-.closeButton{
+.closeButton {
   position: absolute;
   right: 8px;
   top: 0;
 }
 
-#expense-table{
+#expense-table {
   max-height: 50vh;
   overflow-x: auto
 }
 
-#chart-button{
+#chart-button {
   position: absolute;
   right: 7%;
   bottom: 10%
@@ -106,7 +109,7 @@ table thead {
   position: sticky;
   top: 0;
   margin: 0;
-  padding:0;
+  padding: 0;
   border-top: 1px solid white;
 }
 
@@ -114,7 +117,8 @@ nav {
   background-color: #395E66;
 }
 
-#buttons, #chart-button{
-  background-color: #0F6F85 ;
+#buttons,
+#chart-button {
+  background-color: #0F6F85;
   color: white
 }
